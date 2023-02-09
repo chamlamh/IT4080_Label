@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package>
+  <BinaryPlatforms>
+    <Platform>Linux</Platform>
+    <Platform>MacOS</Platform>
+    <Platform>Windows</Platform>
+  </BinaryPlatforms>
+  <Source>
+    <GitCommitHash>5d3eea701123f69a989e1a5064eff3ab6ff260a7</GitCommitHash>
+    <GitRepositoryUrl>https://github.com/RedpointGames/netcode.io</GitRepositoryUrl>
+  </Source>
+</Package>

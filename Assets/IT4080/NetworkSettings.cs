@@ -12,6 +12,7 @@ namespace It4080
         public Button btnHost;
         public Button btnServer;
         public Button btnClient;
+        public Text setStatus;
         public TMPro.TMP_InputField inIpAddress;
         public TMPro.TMP_InputField inPort;
 

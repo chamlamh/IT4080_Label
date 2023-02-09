@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>netcode.io-csharp</name>
+    </assembly>
+    <members>
+        <member name="T:netcode.io.Client">
+            <summary>
+            Represents a netcode.io client instance.
+            </summary>
+        </member>
+        <member name="M:netcode.io.Client.#ctor(System.String,System.Double)">
+            <summary>
+            Create a new netcode.io client.
+            </summary>
+            <param name="bindAddress">The address to bind to.</param>
+            <param name="time">The starting time for the server as a double value.  Normally this will be 0 in the constructor.</param>
+        </member>
+        <member name="M:netcode.io.Client.Connect(System.Byte[])">
+            <summary>
+            Connects a client to a server using a connect token.
+            </summary>
+            <param name="connectToken">
+            The connect token either provided by an authentication service or generated
+            with <see cref="M:netcode.io.NetcodeLibrary.GenerateConnectTokenFromPrivateKey(System.String[],System.Int32,System.UInt64,System.UInt64,System.UInt64,System.Byte[])"/>.
+            </param>
+        </member>
+        <member name="M:netcode.io.Client.Update(System.Double)">
+            <summary>
+            Ticks the netcode.io client over.
+            </summary>
+            <param name="time">The current client time.  This should ideally be increasing at the same rate on your server.</param>
+        </member>
+        <member name="P:netcode.io.Client.State">
+            <summary>
+            Returns the current state of the netcode.io client.
+            </summary>
+        </member>
+        <member name="M:netcode.io.Client.SendPacket(System.Byte[])">
+            <summary>
+            Sends a packet to the server.
+            </summary>
+            <param name="packetData">The packet data.  Must be no larger than <see cref="M:netcode.io.NetcodeLibrary.GetMaxPacketSize"/></param>
+        </member>
+        <member name="M:netcode.io.Client.ReceivePacket">
+            <summary>
+            Receives a packet from the server if available.  This function is non-blocking and returns <c>null</c> if no packet is currently available.
+            </summary>
+            <returns>The byte array of the packet data, or <c>null</c> if no packet is available.</returns>
+        </member>
+        <member name="T:netcode.io.Server">
+            <summary>
+            Represents a netcode.io server instance.
+            </summary>
+        </member>
+        <member name="M:netcode.io.Server.#ctor(System.String,System.UInt64,System.Byte[],System.Double)">
+            <summary>
+            Create a new netcode.io server.
+            </summary>
+            <param name="bindAddress">The address to bind to.</param>
+            <param name="protocolId">The protocol ID.  This should be unique to your game or application.</param>
+            <param name="privateKey">The symmetric private key used between your clients and the dedicated servers.</param>
+            <param name="time">The starting time for the server as a double value.  Normally this will be 0 in the constructor.</param>
+        </member>
+        <member name="M:netcode.io.Server.Start(System.Int32)">
+            <summary>
+            Start the netcode.io server.
+            </summary>
+            <param name="maxClients">The maximum number of clients.  Must be greater than 0 and less than or equal to <see cref="M:netcode.io.NetcodeLibrary.GetMaxClients"/>.</param>
+        </member>
+        <member name="M:netcode.io.Server.Update(System.Double)">
+            <summary>
+            Ticks the netcode.io server over.
+            </summary>
+            <param name="time">The current server time.  This should ideally be increasing at the same rate on your clients.</param>
+        </member>
+        <member name="M:netcode.io.Server.ClientConnected(System.Int32)">
+            <summary>
+            Returns if there is a client connected at the specified client index.
+            </summary>
+            <param name="clientIndex">The client index.</param>
+            <returns>Whether there is a client connected.</returns>
+        </member>
+        <member name="M:netcode.io.Server.SendPacket(System.Int32,System.Byte[])">
+            <summary>
+            Sends a packet to a specific client.
+            </summary>
+            <param name="clientIndex">The client index.</param>
+            <param name="packetData">The packet data.  Must be no larger than <see cref="M:netcode.io.NetcodeLibrary.GetMaxPacketSize"/></param>
+        </member>
+        <member name="M:netcode.io.Server.ReceivePacket(System.Int32)">
+            <summary>
+            Receives a packet from a client if available.  This function is non-blocking and returns <c>null</c> if no packet is currently available.
+            </summary>
+            <param name="clientIndex">The client index.</param>
+            <returns>The byte array of the packet data, or <c>null</c> if no packet is available.</returns>
+        </member>
+    </members>
+</doc>

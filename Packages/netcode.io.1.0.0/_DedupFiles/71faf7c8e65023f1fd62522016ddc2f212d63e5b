@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExternalProject Name="netcode.io-server-example">
+  <Services />
+  <Tool Name="netcode.io-server-example" Path="netcode.io-server-example\AnyCPU\netcode.io-server-example.exe" />
+  <Reference Include="netcode.io-csharp" />
+</ExternalProject>

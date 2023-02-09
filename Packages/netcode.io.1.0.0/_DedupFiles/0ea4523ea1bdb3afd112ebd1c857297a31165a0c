@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IncludeProject Name="netcode.io-nuget-content" Path="native-dist">
+  <!-- This exists so that NuGet will add the native DLLs to the content/ folder -->
+  <Files>
+    <None Include="netcode32.dll" />
+    <None Include="netcode64.dll" />
+    <None Include="netcode.dylib" />
+    <None Include="libnetcode32.so" />
+    <None Include="libnetcode64.so" />
+  </Files>
+</IncludeProject>

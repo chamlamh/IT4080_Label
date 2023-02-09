@@ -246,6 +246,7 @@ MonoBehaviour:
   btnHost: {fileID: 4879425582068592455}
   btnServer: {fileID: 4879425581060075737}
   btnClient: {fileID: 4879425581210799664}
+  setStatus: {fileID: 0}
   inIpAddress: {fileID: 4879425580672701576}
   inPort: {fileID: 4879425581399692000}
   port: 0
