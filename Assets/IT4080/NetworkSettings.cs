@@ -12,16 +12,17 @@ namespace It4080
         public Button btnHost;
         public Button btnServer;
         public Button btnClient;
-        public Text setStatus;
         public TMPro.TMP_InputField inIpAddress;
         public TMPro.TMP_InputField inPort;
+        public TMPro.TMP_Text txtStatus;
+        public GameObject ControlsContainer;
 
         public event Action<IPAddress, ushort> startServer;
         public event Action<IPAddress, ushort> startHost;
         public event Action<IPAddress, ushort> startClient;
 
-        public IPAddress ipAddress = IPAddress.Parse("0.0.0.0");
-        public ushort port = 0;
+        private IPAddress ipAddress = IPAddress.Parse("0.0.0.0");
+        private ushort port = 0;
 
 
         void Start()
@@ -64,8 +65,7 @@ namespace It4080
             if (populateVars())
             {
                 startServer.Invoke(ipAddress, port);
-            }
-                
+            }                
         }
 
 
@@ -81,14 +81,18 @@ namespace It4080
         // Public
         // ----------------------
         public void hide(bool should = true)
-        {
-            Debug.Log("Hiding");
-            this.gameObject.SetActive(!should);
+        {            
+            ControlsContainer.SetActive(!should);
         }
 
         public void show(bool should = true)
         {
             this.hide(!should);
+        }
+
+        public void setStatusText(string msg)
+        {
+            txtStatus.text = msg;
         }
     }
 }
